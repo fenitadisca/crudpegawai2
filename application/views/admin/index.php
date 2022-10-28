@@ -41,36 +41,46 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="mb-3 row">
-                                        <label for="inputNama" class="col-sm-2 col-form-label">Nama</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputNama">
+                                    <form action="">
+                                        <div class="alert alert-danger error" role="alert" style="display: none;">
+
                                         </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label for="inputNip" class="col-sm-2 col-form-label">NIP</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputNip">
+                                        <div class="alert alert-primary sukses" role="alert" style="display: none;">
+
                                         </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label for="inputTgllahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
-                                        <div class="col-sm-10">
-                                            <input type="date" class="form-control" id="inputTgllahir">
+
+                                        <div class="mb-3 row">
+                                            <label for="inputNama" class="col-sm-2 col-form-label">Nama</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="inputNama">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputEmail">
+                                        <div class="mb-3 row">
+                                            <label for="inputNip" class="col-sm-2 col-form-label">NIP</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="inputNip">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="mb-3 row">
-                                        <label for="inputKet" class="col-sm-2 col-form-label">Ket</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputKet">
+                                        <div class="mb-3 row">
+                                            <label for="inputTgllahir" class="col-sm-2 col-form-label">Tanggal
+                                                Lahir</label>
+                                            <div class="col-sm-10">
+                                                <input type="date" class="form-control" id="inputTgllahir">
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="mb-3 row">
+                                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="inputEmail">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 row">
+                                            <label for="inputKet" class="col-sm-2 col-form-label">Ket</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="inputKet">
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
@@ -114,7 +124,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
         </script>
-        <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
         <script>
@@ -125,12 +135,23 @@
             var $email = $('#inputEmail').val();
             var $ket = $('#inputKet').val();
 
+            alert("ini alert");
+
             $.ajax({
-                url: "<?= site_url("admin/simpan")?>",
+                url: "<?= site_url("admin/simpan");?>",
                 type: "POST",
                 success: function(hasil) {
-                    alert(hasil);
+                    var $obj = $.parseJSON(hasil);
+                    if ($ovj.sukses == false) {
+                        $('.error').show();
+                        $('.error').html($obj.error);
+                    } else {
+                        alert("ini alert");
+                        $('.sukses').show();
+                        $('.sukses').html($obj.sukses);
+                    }
                 }
+
             });
         });
         </script>
