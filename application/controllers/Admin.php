@@ -5,8 +5,8 @@ class Admin extends CI_Controller
 {
     public function simpan()
     {
-        $hasil['sukses'] = false;
-        $hasil['error'] = "Ada Error terjadi";
+        $hasil['sukses'] = "Berhasil menambahkan data";
+        $hasil['error'] = true;
         echo json_encode($hasil);
     }
         

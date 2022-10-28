@@ -146,10 +146,11 @@
                     console.log(hasil)
                     var $obj = JSON.parse(hasil);
                     if ($obj.sukses == false) {
+                        $('.sukses').hide();
                         $('.error').show();
                         $('.error').html($obj.error);
                     } else {
-                        alert("ini alert");
+                        $('.error').hide();
                         $('.sukses').show();
                         $('.sukses').html($obj.sukses);
                     }
