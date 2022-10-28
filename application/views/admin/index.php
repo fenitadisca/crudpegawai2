@@ -52,7 +52,7 @@
                                         <div class="mb-3 row">
                                             <label for="inputNama" class="col-sm-2 col-form-label">Nama</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputNama">
+                                                <input type="text" class="form-control" id="inputNama" name="nama">
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
@@ -71,7 +71,7 @@
                                         <div class="mb-3 row">
                                             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputEmail">
+                                                <input type="text" class="form-control" id="inputEmail" name="email">
                                             </div>
                                         </div>
                                         <div class="mb-3 row">
