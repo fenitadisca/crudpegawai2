@@ -42,9 +42,11 @@
                                 </div>
                                 <div class="modal-body">
                                     <form action="" method="POST">
-                                        <div class="alert alert-danger error" role="alert" style="display: none;">
+                                        <div class="alert alert-danger error" role="alert"
+                                            style="display: none; font-size:12pt;">
                                         </div>
-                                        <div class="alert alert-primary sukses" role="alert" style="display: none;">
+                                        <div class="alert alert-primary sukses" role="alert"
+                                            style="display: none; font-size:12pt;">
                                         </div>
 
                                         <div class="mb-3 row">
@@ -137,18 +139,17 @@
 
 
 
-
             $.ajax({
-                url: "<?= site_url("admin/simpan");?>",
+                url: "<?= base_url("admin/simpan");?>",
                 type: "POST",
                 success: function(hasil) {
+                    console.log(hasil)
                     var $obj = JSON.parse(hasil);
-                    console.log($obj);
                     if ($obj.sukses == false) {
                         $('.error').show();
                         $('.error').html($obj.error);
                     } else {
-                        alert('ini alert');
+                        alert("ini alert");
                         $('.sukses').show();
                         $('.sukses').html($obj.sukses);
                     }

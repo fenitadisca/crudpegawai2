@@ -5,11 +5,11 @@ class Admin extends CI_Controller
 {
     public function simpan()
     {
-       
-        $hasil['sukses'] ="Berhasil memasukan data";
-        $hasil['error'] = false;
-        return json_encode($hasil);
+        $hasil['sukses'] = false;
+        $hasil['error'] = "Ada Error terjadi";
+        echo json_encode($hasil);
     }
+        
     
     public function index()
     {
