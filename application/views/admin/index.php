@@ -142,6 +142,14 @@
             $.ajax({
                 url: "<?= base_url("admin/simpan");?>",
                 type: "POST",
+                data: {
+                    nama: $nama,
+                    nip: $nip,
+                    tgllahir: $tgllahir,
+                    email: $email,
+                    ket: $ket
+
+                },
                 success: function(hasil) {
                     console.log(hasil)
                     var $obj = JSON.parse(hasil);
