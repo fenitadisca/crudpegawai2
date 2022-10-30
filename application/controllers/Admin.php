@@ -11,31 +11,32 @@ class Admin extends CI_Controller
     public function simpan()
     {
         $this->form_validation->set_rules('nama', 'Nama', 'required|min_length[5]' , [
-            'required'      => '{field} harus diisi',
+            'required'       => '{field} harus diisi',
             'min_length'     => 'Minimum karakter untuk field {field} adalah 5 karakter'
         ]);
-        $this->form_validation->set_rules('email', 'Email', 'required|min_length[5]|valid_email|', [
-            'required'      => '{field} harus diisi',
-            'min_length'     => 'Minimum karakter untuk field {field} adalah 5 karakter',
-            'valid_email' => 'Email yang kamu masukan tidak valid'
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]', [
+            'required'       => '{field} harus diisi',
+            'min_length[5]'  => 'Minimum karakter untuk field {field} adalah 5 karakter',
+            'valid_email'    => 'Email yang kamu masukan tidak valid'
         ]);
 
    
       
-            if ($this->form_validation->run()){
+        if ($this->form_validation->run()){
 
-            $nama = $this->request->getPost('nama');
-            $nip = $this->request->getPost('nip');
-            $tgllahir = $this->request->getPost('tgllahir');
-            $email = $this->request->getPost('email');
-            $ket = $this->request->getPost('ket');
+            $nama = $this->input->post('nama');
+            $nip = $this->input->post('nip');
+            $tgllahir = $this->input->post('tgllahir');
+            $email = $this->input->post('email');
+            $ket = $this->input->post('ket');
 
             
         $hasil['sukses'] = "Berhasil menambahkan data";
         $hasil['error'] = true;
+        $hasil['email'] = $this->input->post('email');
         } else{
             $hasil['sukses'] = false;
-            $hasil['error'] = $this->form_validation->set_rules('');
+            $hasil['error'] = validation_errors();
         }
 
 
