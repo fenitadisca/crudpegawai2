@@ -35,7 +35,7 @@ class Admin extends CI_Controller
         $hasil['error'] = true;
         } else{
             $hasil['sukses'] = false;
-            $hasil['error'] = $this->form_validation->set_rules('nama[]');
+            $hasil['error'] = $this->form_validation->set_rules('');
         }
 
 
